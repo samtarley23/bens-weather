@@ -165,10 +165,7 @@
       line-height: 1.15;
     }
 
-    .mood-detail {
-      margin: 0.35rem 0 0;
-      font-size: 1.05rem;
-    }
+    .mood-detail { display: none; }
 
     .stats {
       display: grid;
@@ -254,8 +251,7 @@
   <main>
     <header>
       <h1>Ben's Weather</h1>
-      <p class="subtitle">A silly little forecast for Ben Jaeger</p>
-    </header>
+          </header>
 
     <section class="card" id="app" aria-live="polite">
       <div class="where-row">
@@ -265,8 +261,8 @@
 
       <div class="mood loading" id="mood">
         <div class="mood-emoji" id="emoji">🖍️</div>
-        <p class="mood-line" id="moodLine">Crayons are warming up…</p>
-        <p class="mood-detail" id="moodDetail">Asking the sky about Ben.</p>
+        <p class="mood-line" id="moodLine">…</p>
+        <p class="mood-detail" id="moodDetail" hidden></p>
       </div>
 
       <div class="stats">
@@ -279,7 +275,7 @@
           <div class="value" id="feels">—</div>
         </div>
         <div class="stat">
-          <div class="label">Sky story</div>
+          <div class="label">Sky</div>
           <div class="value" id="sky">—</div>
         </div>
         <div class="stat">
@@ -288,65 +284,55 @@
         </div>
       </div>
 
-      <div class="note" id="note">
-        We don’t track Ben’s phone. We guess <strong>home</strong> or <strong>work</strong> from the clock.
-      </div>
-
-      <button class="refresh" type="button" id="refresh">Shake the crayons again</button>
+      <button class="refresh" type="button" id="refresh">Refresh</button>
       <p class="error" id="error" hidden></p>
     </section>
 
-    <footer>Not real tracking · Open-Meteo weather · Made for giggles</footer>
   </main>
 
   <script>
     const PLACES = {
       home: {
-        name: "Home · Needham, MA",
         short: "🏠 Home",
         badgeClass: "home",
         lat: 42.2834,
-        lon: -71.2328,
-        blurb: "Ben is probably on the couch in Needham (or arguing with a toaster)."
+        lon: -71.2328
       },
       work: {
-        name: "Work · Downtown Boston (Meta-ish)",
         short: "🏢 Work",
         badgeClass: "work",
-        // Seaport / downtown Boston — near pickleball-y waterfront vibes
         lat: 42.3512,
-        lon: -71.0440,
-        blurb: "Ben is probably near the Meta office downtown, a hop from pickleball dreams."
+        lon: -71.0440
       }
     };
 
     const WMO = {
-      0: "Big sunny smile",
-      1: "Mostly sunny giggles",
-      2: "Partly cloudy doodles",
-      3: "Gray crayon sky",
-      45: "Foggy mystery soup",
-      48: "Icy fog glitter",
-      51: "Tiny drip drops",
-      53: "Medium drip drops",
-      55: "Splashy drip drops",
-      61: "Light rain tickles",
-      63: "Rain party",
-      65: "Big rain stomps",
-      66: "Freezing rain oops",
-      67: "Icy rain chaos",
-      71: "Soft snow sprinkles",
-      73: "Snowball weather",
-      75: "Mega snow day",
-      77: "Snow grain sparkles",
-      80: "Rain shower hops",
-      81: "Rain shower zooms",
-      82: "Rain shower ROAR",
-      85: "Snow shower hops",
-      86: "Snow shower ROAR",
-      95: "Thunderdrum boom",
-      96: "Thunder + hail!",
-      99: "Wild thunder hail"
+      0: "Sunny",
+      1: "Mostly sunny",
+      2: "Partly cloudy",
+      3: "Cloudy",
+      45: "Foggy",
+      48: "Icy fog",
+      51: "Light drizzle",
+      53: "Drizzle",
+      55: "Heavy drizzle",
+      61: "Light rain",
+      63: "Rain",
+      65: "Heavy rain",
+      66: "Freezing rain",
+      67: "Heavy freezing rain",
+      71: "Light snow",
+      73: "Snow",
+      75: "Heavy snow",
+      77: "Snow grains",
+      80: "Rain showers",
+      81: "Heavy showers",
+      82: "Violent showers",
+      85: "Snow showers",
+      86: "Heavy snow showers",
+      95: "Thunderstorm",
+      96: "Thunder + hail",
+      99: "Severe thunder hail"
     };
 
     function bostonNow() {
@@ -394,62 +380,62 @@
         return {
           emoji: "☃️",
           line: "Ben is feeling like a snowman!",
-          detail: "Bundle up, Ben — the sky is dumping marshmallows."
+          detail: ""
         };
       }
       if (wet && feelsF <= 45) {
         return {
           emoji: "🥶",
           line: "Ben is feeling chilly AND all wet!",
-          detail: "Cold + soggy = peak grumble energy."
+          detail: ""
         };
       }
       if (wet) {
         return {
           emoji: "🌧️",
           line: "Ben is feeling all wet.",
-          detail: "Squishy socks alert. Splash carefully."
+          detail: ""
         };
       }
       if (feelsF >= 85 || tempF >= 88) {
         return {
           emoji: "🥵",
           line: "Ben is feeling too hot.",
-          detail: "Someone get this man a popsicle and a breeze."
+          detail: ""
         };
       }
       if (feelsF <= 35 || tempF <= 32) {
         return {
           emoji: "🧊",
           line: "Ben is feeling chilly.",
-          detail: "Teeth-chatter mode. Coat. Now. Please."
+          detail: ""
         };
       }
       if (feelsF <= 48) {
         return {
           emoji: "🧥",
           line: "Ben is feeling a little chilly.",
-          detail: "Not freezing — just jacket-curious."
+          detail: ""
         };
       }
       if (tempF >= 75) {
         return {
           emoji: "😎",
           line: "Ben is feeling toasty-warm.",
-          detail: "Sunglasses optional. Vibes mandatory."
+          detail: ""
         };
       }
       if (code === 0 || code === 1) {
         return {
           emoji: "🌞",
           line: "Ben is feeling just right!",
-          detail: "Goldilocks weather. Go touch grass (or pickleball)."
+          detail: ""
         };
       }
       return {
         emoji: "😊",
         line: "Ben is feeling pretty okay.",
-        detail: "Neither melty nor frozen. A solid B+ day."
+        detail: ""
       };
     }
 
@@ -460,7 +446,7 @@
         `&current=temperature_2m,apparent_temperature,precipitation,precipitation_probability,weather_code` +
         `&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=America%2FNew_York`;
       const res = await fetch(url);
-      if (!res.ok) throw new Error("Weather crayon broke (" + res.status + ")");
+      if (!res.ok) throw new Error("Weather unavailable (" + res.status + ")");
       return res.json();
     }
 
@@ -474,13 +460,12 @@
       const now = bostonNow();
       const place = pickPlace(now);
       const badge = document.getElementById("placeBadge");
-      badge.textContent = place.short + " · guessed";
+      badge.textContent = place.short;
       badge.className = "badge " + place.badgeClass;
       setText("clock", formatClock(now));
-      setText("note", place.blurb + " Rule: weekdays 9am–6pm ET → work; otherwise → home.");
-      setText("moodLine", "Crayons are warming up…");
-      setText("moodDetail", "Asking the sky about Ben.");
-      document.getElementById("emoji").textContent = "🖍️";
+      setText("moodLine", "…");
+      setText("moodDetail", "");
+      document.getElementById("emoji").textContent = "⏳";
       document.getElementById("mood").classList.add("loading");
 
       try {
@@ -508,9 +493,9 @@
         );
       } catch (e) {
         err.hidden = false;
-        err.textContent = "Oops — " + (e.message || "couldn’t color the weather.");
+        err.textContent = e.message || "Couldn’t load weather.";
         setText("moodLine", "Ben is feeling confused.");
-        setText("moodDetail", "The weather crayons ran out of ink.");
+        setText("moodDetail", "");
         document.getElementById("emoji").textContent = "😵";
       }
     }
