@@ -214,24 +214,6 @@
       opacity: 0.6;
     }
 
-    button.refresh {
-      margin-top: 1rem;
-      width: 100%;
-      border: 3px solid var(--ink);
-      border-radius: 999px;
-      padding: 0.7rem 1rem;
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 700;
-      background: var(--crayon-green);
-      color: var(--ink);
-      cursor: pointer;
-      box-shadow: 3px 4px 0 rgba(43, 29, 18, 0.2);
-    }
-    button.refresh:active {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 rgba(43, 29, 18, 0.2);
-    }
 
     .error {
       color: var(--crayon-red);
@@ -284,7 +266,6 @@
         </div>
       </div>
 
-      <button class="refresh" type="button" id="refresh">Refresh</button>
       <p class="error" id="error" hidden></p>
     </section>
 
@@ -500,9 +481,8 @@
       }
     }
 
-    document.getElementById("refresh").addEventListener("click", refresh);
     refresh();
-    setInterval(refresh, 10 * 60 * 1000);
+    setInterval(refresh, 60 * 1000);
   </script>
 </body>
 </html>
