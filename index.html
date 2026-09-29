@@ -18,9 +18,7 @@
       --crayon-purple: #9b6bc9;
       --crayon-orange: #f0a04b;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       min-height: 100vh;
@@ -31,196 +29,129 @@
         radial-gradient(circle at 88% 12%, #c9e7ff 0 14%, transparent 15%),
         radial-gradient(circle at 80% 78%, #ffd0c8 0 16%, transparent 17%),
         radial-gradient(circle at 18% 82%, #d8f5c8 0 12%, transparent 13%),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 27px,
-          rgba(43, 29, 18, 0.04) 27px,
-          rgba(43, 29, 18, 0.04) 28px
-        ),
+        repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(43,29,18,.04) 27px, rgba(43,29,18,.04) 28px),
         var(--paper);
       overflow-x: hidden;
     }
-
-    .scribble {
-      position: fixed;
-      pointer-events: none;
-      opacity: 0.18;
-      font-family: "Caveat", cursive;
-      font-size: 3rem;
-      z-index: 0;
-      transform: rotate(-8deg);
-    }
-    .scribble.a { top: 6%; left: 4%; color: var(--crayon-red); }
+    .scribble { position: fixed; pointer-events: none; opacity: .18; font-family: "Caveat", cursive; font-size: 3rem; z-index: 0; }
+    .scribble.a { top: 6%; left: 4%; color: var(--crayon-red); transform: rotate(-8deg); }
     .scribble.b { top: 14%; right: 6%; color: var(--crayon-blue); transform: rotate(12deg); }
     .scribble.c { bottom: 10%; left: 8%; color: var(--crayon-green); transform: rotate(6deg); }
     .scribble.d { bottom: 16%; right: 5%; color: var(--crayon-purple); transform: rotate(-14deg); }
-
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 1.25rem;
-    }
-
+    main { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem 2.5rem; }
     h1 {
       font-family: "Caveat", cursive;
-      font-size: clamp(2.8rem, 10vw, 4rem);
-      margin: 0;
-      line-height: 0.95;
+      font-size: clamp(2.6rem, 9vw, 3.6rem);
+      margin: 0 0 1rem;
+      text-align: center;
       color: var(--crayon-blue);
-      text-shadow:
-        2px 2px 0 #fff,
-        3px 3px 0 rgba(74, 144, 217, 0.35);
-      letter-spacing: 0.02em;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 rgba(74,144,217,.35);
+      line-height: .95;
     }
-
-    .subtitle {
-      font-size: 1.05rem;
-      margin-top: 0.35rem;
-      opacity: 0.8;
-    }
-
     .card {
       background: #fffdf8;
       border: 4px solid var(--ink);
       border-radius: 28px 22px 30px 18px / 22px 30px 18px 28px;
-      padding: 1.4rem 1.3rem 1.6rem;
-      box-shadow:
-        6px 8px 0 rgba(43, 29, 18, 0.12),
-        inset 0 0 0 3px rgba(245, 215, 110, 0.35);
+      padding: 1.15rem 1.1rem 1.35rem;
+      box-shadow: 6px 8px 0 rgba(43,29,18,.12), inset 0 0 0 3px rgba(245,215,110,.35);
       position: relative;
+      margin-bottom: 1rem;
     }
-
     .card::before {
       content: "";
       position: absolute;
-      top: -10px;
-      left: 28px;
-      width: 54px;
-      height: 18px;
+      top: -10px; left: 28px;
+      width: 54px; height: 18px;
       background: var(--crayon-yellow);
       border: 3px solid var(--ink);
       border-radius: 4px;
       transform: rotate(-4deg);
-      opacity: 0.9;
     }
-
-    .where-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
+    .where-row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: space-between; margin-bottom: .75rem; }
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
-      border: 3px solid var(--ink);
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      background: #fff;
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .7rem; border: 3px solid var(--ink); border-radius: 999px;
+      font-weight: 600; font-size: .92rem; background: #fff;
     }
     .badge.home { background: #ffe9b8; }
     .badge.work { background: #cfe8ff; }
-
-    .clock {
-      font-size: 0.9rem;
-      opacity: 0.75;
-    }
-
-    .mood {
-      text-align: center;
-      margin: 0.5rem 0 1.1rem;
-    }
-
+    .clock { font-size: .88rem; opacity: .75; }
+    .mood { text-align: center; margin: .25rem 0 .9rem; }
     .mood-emoji {
-      font-size: 5.5rem;
-      line-height: 1;
-      filter: drop-shadow(3px 4px 0 rgba(43, 29, 18, 0.15));
+      font-size: 4.6rem; line-height: 1;
+      filter: drop-shadow(3px 4px 0 rgba(43,29,18,.15));
       animation: wobble 2.8s ease-in-out infinite;
     }
-
     @keyframes wobble {
-      0%, 100% { transform: rotate(-3deg) scale(1); }
+      0%,100% { transform: rotate(-3deg) scale(1); }
       50% { transform: rotate(4deg) scale(1.04); }
     }
-
     .mood-line {
       font-family: "Caveat", cursive;
-      font-size: clamp(1.8rem, 6vw, 2.4rem);
-      margin: 0.4rem 0 0;
+      font-size: clamp(1.7rem, 5.5vw, 2.25rem);
+      margin: .35rem 0 0;
       color: var(--crayon-red);
-      line-height: 1.15;
+      line-height: 1.1;
     }
-
-    .mood-detail { display: none; }
-
+    .summary {
+      margin: 0 0 1rem;
+      padding: .75rem .85rem;
+      border: 3px dashed var(--ink);
+      border-radius: 16px;
+      background: rgba(255,255,255,.75);
+      font-size: .98rem;
+      line-height: 1.4;
+    }
     .stats {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
-      margin-top: 0.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .55rem;
     }
-
+    @media (min-width: 520px) {
+      .stats { grid-template-columns: repeat(3, 1fr); }
+    }
     .stat {
       border: 3px dashed var(--ink);
-      border-radius: 18px;
-      padding: 0.75rem 0.7rem;
-      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: .65rem .55rem;
+      background: rgba(255,255,255,.7);
       text-align: center;
     }
-
     .stat .label {
-      font-size: 0.78rem;
+      font-size: .72rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      opacity: 0.65;
-      margin-bottom: 0.2rem;
+      letter-spacing: .04em;
+      opacity: .65;
+      margin-bottom: .15rem;
     }
-
-    .stat .value {
-      font-size: 1.35rem;
-      font-weight: 700;
+    .stat .value { font-size: 1.15rem; font-weight: 700; }
+    .stat .sub { font-size: .78rem; opacity: .7; margin-top: .15rem; }
+    .section-title {
+      font-family: "Caveat", cursive;
+      font-size: 1.55rem;
+      margin: 0 0 .55rem;
+      color: var(--crayon-purple);
     }
-
-    .note {
-      margin-top: 1rem;
-      padding: 0.75rem 0.85rem;
-      background: #f3e9ff;
+    .forecast {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: .35rem;
+      overflow-x: auto;
+    }
+    .day {
+      min-width: 0;
       border: 3px solid var(--ink);
-      border-radius: 16px 20px 14px 22px;
-      font-size: 0.95rem;
-      line-height: 1.35;
-    }
-
-    .note strong { color: var(--crayon-purple); }
-
-    footer {
+      border-radius: 14px;
+      padding: .45rem .25rem .55rem;
       text-align: center;
-      margin-top: 1.25rem;
-      font-size: 0.85rem;
-      opacity: 0.6;
+      background: #fff;
     }
-
-
-    .error {
-      color: var(--crayon-red);
-      text-align: center;
-      font-weight: 600;
-    }
-
+    .day .dname { font-size: .72rem; font-weight: 700; margin-bottom: .15rem; }
+    .day .icon { font-size: 1.4rem; line-height: 1.2; }
+    .day .hi { font-size: .85rem; font-weight: 700; color: var(--crayon-red); }
+    .day .lo { font-size: .8rem; opacity: .75; }
+    .day .wx { font-size: .65rem; line-height: 1.2; margin-top: .2rem; opacity: .8; }
+    .error { color: var(--crayon-red); text-align: center; font-weight: 600; margin: .5rem 0 0; }
     .loading .mood-line { color: var(--crayon-orange); }
   </style>
 </head>
@@ -229,101 +160,67 @@
   <div class="scribble b" aria-hidden="true">☁︎</div>
   <div class="scribble c" aria-hidden="true">☂︎</div>
   <div class="scribble d" aria-hidden="true">☀︎</div>
-
   <main>
-    <header>
-      <h1>Ben's Weather</h1>
-          </header>
-
+    <h1>Ben's Weather</h1>
     <section class="card" id="app" aria-live="polite">
       <div class="where-row">
         <span class="badge" id="placeBadge">…</span>
         <span class="clock" id="clock"></span>
       </div>
-
       <div class="mood loading" id="mood">
-        <div class="mood-emoji" id="emoji">🖍️</div>
+        <div class="mood-emoji" id="emoji">⏳</div>
         <p class="mood-line" id="moodLine">…</p>
-        <p class="mood-detail" id="moodDetail" hidden></p>
       </div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="label">Temperature</div>
-          <div class="value" id="temp">—</div>
-        </div>
-        <div class="stat">
-          <div class="label">Feels like</div>
-          <div class="value" id="feels">—</div>
-        </div>
-        <div class="stat">
-          <div class="label">Sky</div>
-          <div class="value" id="sky">—</div>
-        </div>
-        <div class="stat">
-          <div class="label">Wetness</div>
-          <div class="value" id="wet">—</div>
-        </div>
-      </div>
-
+      <p class="summary" id="summary">…</p>
+      <div class="stats" id="stats"></div>
       <p class="error" id="error" hidden></p>
     </section>
-
+    <section class="card">
+      <h2 class="section-title">This week</h2>
+      <div class="forecast" id="forecast"></div>
+    </section>
   </main>
-
   <script>
     const PLACES = {
-      home: {
-        short: "🏠 Home",
-        badgeClass: "home",
-        lat: 42.2834,
-        lon: -71.2328
-      },
-      work: {
-        short: "🏢 Work",
-        badgeClass: "work",
-        lat: 42.3512,
-        lon: -71.0440
-      }
+      home: { short: "🏠 Home", badgeClass: "home", lat: 42.2834, lon: -71.2328, label: "Needham" },
+      work: { short: "🏢 Work", badgeClass: "work", lat: 42.3512, lon: -71.0440, label: "Boston" }
     };
 
     const WMO = {
-      0: "Sunny",
-      1: "Mostly sunny",
-      2: "Partly cloudy",
-      3: "Cloudy",
-      45: "Foggy",
-      48: "Icy fog",
-      51: "Light drizzle",
-      53: "Drizzle",
-      55: "Heavy drizzle",
-      61: "Light rain",
-      63: "Rain",
-      65: "Heavy rain",
-      66: "Freezing rain",
-      67: "Heavy freezing rain",
-      71: "Light snow",
-      73: "Snow",
-      75: "Heavy snow",
-      77: "Snow grains",
-      80: "Rain showers",
-      81: "Heavy showers",
-      82: "Violent showers",
-      85: "Snow showers",
-      86: "Heavy snow showers",
-      95: "Thunderstorm",
-      96: "Thunder + hail",
-      99: "Severe thunder hail"
+      0: ["Sunny", "☀️"],
+      1: ["Mostly sunny", "🌤️"],
+      2: ["Partly cloudy", "⛅"],
+      3: ["Cloudy", "☁️"],
+      45: ["Foggy", "🌫️"],
+      48: ["Icy fog", "🌫️"],
+      51: ["Light drizzle", "🌦️"],
+      53: ["Drizzle", "🌦️"],
+      55: ["Heavy drizzle", "🌧️"],
+      61: ["Light rain", "🌧️"],
+      63: ["Rain", "🌧️"],
+      65: ["Heavy rain", "🌧️"],
+      66: ["Freezing rain", "🧊"],
+      67: ["Heavy freezing rain", "🧊"],
+      71: ["Light snow", "🌨️"],
+      73: ["Snow", "❄️"],
+      75: ["Heavy snow", "❄️"],
+      77: ["Snow grains", "🌨️"],
+      80: ["Showers", "🌦️"],
+      81: ["Heavy showers", "🌧️"],
+      82: ["Downpours", "🌧️"],
+      85: ["Snow showers", "🌨️"],
+      86: ["Heavy snow showers", "❄️"],
+      95: ["Thunderstorm", "⛈️"],
+      96: ["Thunder + hail", "⛈️"],
+      99: ["Severe storm", "⛈️"]
     };
 
     function bostonNow() {
-      return new Date(
-        new Date().toLocaleString("en-US", { timeZone: "America/New_York" })
-      );
+      return new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
     }
 
     function pickPlace(now) {
-      const day = now.getDay(); // 0 Sun … 6 Sat
+      const day = now.getDay();
       const hour = now.getHours();
       const weekday = day >= 1 && day <= 5;
       const workHours = hour >= 9 && hour < 18;
@@ -332,100 +229,84 @@
 
     function formatClock(now) {
       return now.toLocaleString("en-US", {
-        weekday: "short",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        timeZone: "America/New_York"
+        weekday: "short", month: "short", day: "numeric",
+        hour: "numeric", minute: "2-digit", timeZone: "America/New_York"
       }) + " ET";
     }
 
-    function isWetCode(code) {
-      return (
-        (code >= 51 && code <= 67) ||
-        (code >= 80 && code <= 82) ||
-        code === 95 || code === 96 || code === 99
-      );
+    function wx(code) {
+      return WMO[code] || ["Weird sky", "❓"];
     }
 
+    function isWet(code, precipProb) {
+      return ((code >= 51 && code <= 67) || (code >= 80 && code <= 82) || code === 95 || code === 96 || code === 99) || precipProb >= 55;
+    }
     function isSnowy(code) {
       return (code >= 71 && code <= 77) || code === 85 || code === 86;
     }
 
     function moodFor({ tempF, feelsF, code, precipProb }) {
-      const wet = isWetCode(code) || precipProb >= 55;
-      const snow = isSnowy(code);
+      const wet = isWet(code, precipProb);
+      if (isSnowy(code)) return { emoji: "☃️", line: "Ben is feeling like a snowman!" };
+      if (wet && feelsF <= 45) return { emoji: "🥶", line: "Ben is feeling chilly AND all wet!" };
+      if (wet) return { emoji: "🌧️", line: "Ben is feeling all wet." };
+      if (feelsF >= 85 || tempF >= 88) return { emoji: "🥵", line: "Ben is feeling too hot." };
+      if (feelsF <= 35 || tempF <= 32) return { emoji: "🧊", line: "Ben is feeling chilly." };
+      if (feelsF <= 48) return { emoji: "🧥", line: "Ben is feeling a little chilly." };
+      if (tempF >= 75) return { emoji: "😎", line: "Ben is feeling toasty-warm." };
+      if (code === 0 || code === 1) return { emoji: "🌞", line: "Ben is feeling just right!" };
+      return { emoji: "😊", line: "Ben is feeling pretty okay." };
+    }
 
-      if (snow) {
-        return {
-          emoji: "☃️",
-          line: "Ben is feeling like a snowman!",
-          detail: ""
-        };
-      }
-      if (wet && feelsF <= 45) {
-        return {
-          emoji: "🥶",
-          line: "Ben is feeling chilly AND all wet!",
-          detail: ""
-        };
-      }
-      if (wet) {
-        return {
-          emoji: "🌧️",
-          line: "Ben is feeling all wet.",
-          detail: ""
-        };
-      }
-      if (feelsF >= 85 || tempF >= 88) {
-        return {
-          emoji: "🥵",
-          line: "Ben is feeling too hot.",
-          detail: ""
-        };
-      }
-      if (feelsF <= 35 || tempF <= 32) {
-        return {
-          emoji: "🧊",
-          line: "Ben is feeling chilly.",
-          detail: ""
-        };
-      }
-      if (feelsF <= 48) {
-        return {
-          emoji: "🧥",
-          line: "Ben is feeling a little chilly.",
-          detail: ""
-        };
-      }
-      if (tempF >= 75) {
-        return {
-          emoji: "😎",
-          line: "Ben is feeling toasty-warm.",
-          detail: ""
-        };
-      }
-      if (code === 0 || code === 1) {
-        return {
-          emoji: "🌞",
-          line: "Ben is feeling just right!",
-          detail: ""
-        };
-      }
-      return {
-        emoji: "😊",
-        line: "Ben is feeling pretty okay.",
-        detail: ""
-      };
+    function windWord(mph) {
+      if (mph < 1) return "Calm";
+      if (mph < 4) return "Light air";
+      if (mph < 8) return "Light breeze";
+      if (mph < 13) return "Gentle breeze";
+      if (mph < 19) return "Moderate breeze";
+      if (mph < 25) return "Fresh breeze";
+      if (mph < 32) return "Strong breeze";
+      return "Windy";
+    }
+
+    function compass(deg) {
+      if (deg == null || Number.isNaN(deg)) return "—";
+      const dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+      return dirs[Math.round(deg / 22.5) % 16];
+    }
+
+    function band(temp) {
+      if (temp >= 85) return "hot";
+      if (temp >= 75) return "warm";
+      if (temp >= 60) return "mild";
+      if (temp >= 45) return "cool";
+      if (temp >= 32) return "chilly";
+      return "freezing";
+    }
+
+    function buildSummary({ place, now, code, tempF, feelsF, windMph, windDir, precipProb, todayHi, todayLo, tomorrowHi, tomorrowCode }) {
+      const [sky] = wx(code);
+      const dayName = now.toLocaleString("en-US", { weekday: "long", timeZone: "America/New_York" });
+      const [tomSky] = wx(tomorrowCode);
+      const windBit = windMph >= 15
+        ? `${compass(windDir)} winds around ${Math.round(windMph)} mph`
+        : windMph >= 5
+          ? `a ${windWord(windMph).toLowerCase()} from the ${compass(windDir)}`
+          : "mostly light winds";
+      const precipBit = precipProb >= 55
+        ? `Rain chances look decent (~${precipProb}%).`
+        : precipProb >= 30
+          ? `A small chance of wet stuff (~${precipProb}%).`
+          : "Staying mostly dry.";
+      return `${dayName} in ${place.label}: ${sky.toLowerCase()}, ${tempF}°F (feels ${feelsF}°F), ${windBit}. Today’s range about ${todayLo}°–${todayHi}°F. ${precipBit} Tomorrow looks ${tomSky.toLowerCase()} with a high near ${tomorrowHi}°F.`;
     }
 
     async function fetchWeather(place) {
       const url =
-        `https://api.open-meteo.com/v1/forecast?latitude=${place.lat}` +
-        `&longitude=${place.lon}` +
-        `&current=temperature_2m,apparent_temperature,precipitation,precipitation_probability,weather_code` +
-        `&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=America%2FNew_York`;
+        `https://api.open-meteo.com/v1/forecast?latitude=${place.lat}&longitude=${place.lon}` +
+        `&current=temperature_2m,apparent_temperature,relative_humidity_2m,dew_point_2m,precipitation,precipitation_probability,weather_code,cloud_cover,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m` +
+        `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,wind_speed_10m_max` +
+        `&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York&forecast_days=7`;
       const res = await fetch(url);
       if (!res.ok) throw new Error("Weather unavailable (" + res.status + ")");
       return res.json();
@@ -433,6 +314,10 @@
 
     function setText(id, text) {
       document.getElementById(id).textContent = text;
+    }
+
+    function stat(label, value, sub) {
+      return `<div class="stat"><div class="label">${label}</div><div class="value">${value}</div>${sub ? `<div class="sub">${sub}</div>` : ""}</div>`;
     }
 
     async function refresh() {
@@ -444,39 +329,67 @@
       badge.textContent = place.short;
       badge.className = "badge " + place.badgeClass;
       setText("clock", formatClock(now));
-      setText("moodLine", "…");
-      setText("moodDetail", "");
-      document.getElementById("emoji").textContent = "⏳";
       document.getElementById("mood").classList.add("loading");
+      setText("moodLine", "…");
+      document.getElementById("emoji").textContent = "⏳";
 
       try {
         const data = await fetchWeather(place);
         const c = data.current;
+        const d = data.daily;
         const tempF = Math.round(c.temperature_2m);
         const feelsF = Math.round(c.apparent_temperature);
         const code = c.weather_code;
-        const precipProb = c.precipitation_probability ?? 0;
+        const precipProb = c.precipitation_probability ?? d.precipitation_probability_max?.[0] ?? 0;
         const precip = c.precipitation ?? 0;
+        const humidity = Math.round(c.relative_humidity_2m);
+        const dew = Math.round(c.dew_point_2m);
+        const pressure = (c.pressure_msl / 33.8639).toFixed(2); // hPa → inHg
+        const windMph = c.wind_speed_10m;
+        const gust = c.wind_gusts_10m;
+        const windDir = c.wind_direction_10m;
+        const clouds = Math.round(c.cloud_cover);
+        const [skyLabel, skyEmoji] = wx(code);
+        const todayHi = Math.round(d.temperature_2m_max[0]);
+        const todayLo = Math.round(d.temperature_2m_min[0]);
+        const todayRain = (d.precipitation_sum[0] ?? 0).toFixed(2);
+        const tomorrowHi = Math.round(d.temperature_2m_max[1]);
+        const tomorrowCode = d.weather_code[1];
         const mood = moodFor({ tempF, feelsF, code, precipProb });
 
         document.getElementById("mood").classList.remove("loading");
         document.getElementById("emoji").textContent = mood.emoji;
         setText("moodLine", mood.line);
-        setText("moodDetail", mood.detail);
-        setText("temp", tempF + "°F");
-        setText("feels", feelsF + "°F");
-        setText("sky", WMO[code] || ("Code " + code));
-        setText(
-          "wet",
-          precipProb >= 0
-            ? precipProb + "% chance" + (precip > 0 ? " · " + precip.toFixed(2) + '"' : "")
-            : "—"
-        );
+        setText("summary", buildSummary({
+          place, now, code, tempF, feelsF, windMph, windDir, precipProb,
+          todayHi, todayLo, tomorrowHi, tomorrowCode
+        }));
+
+        document.getElementById("stats").innerHTML = [
+          stat("Temperature", tempF + "°F", band(tempF)),
+          stat("Feels like", feelsF + "°F", ""),
+          stat("Sky", skyEmoji + " " + skyLabel, clouds + "% clouds"),
+          stat("Today", todayHi + "° / " + todayLo + "°", "high / low"),
+          stat("Wind", compass(windDir) + " " + Math.round(windMph), "gust " + Math.round(gust) + " · " + windWord(windMph)),
+          stat("Humidity", humidity + "%", "dew " + dew + "°F"),
+          stat("Pressure", pressure + " in", ""),
+          stat("Rain chance", precipProb + "%", "today " + todayRain + '"'),
+          stat("Precip now", precip.toFixed(2) + '"', "")
+        ].join("");
+
+        const forecast = document.getElementById("forecast");
+        forecast.innerHTML = d.time.map((iso, i) => {
+          const dt = new Date(iso + "T12:00:00");
+          const name = i === 0 ? "Today" : dt.toLocaleString("en-US", { weekday: "short", timeZone: "America/New_York" });
+          const [label, icon] = wx(d.weather_code[i]);
+          const hi = Math.round(d.temperature_2m_max[i]);
+          const lo = Math.round(d.temperature_2m_min[i]);
+          return `<div class="day"><div class="dname">${name}</div><div class="icon">${icon}</div><div class="hi">${hi}°</div><div class="lo">${lo}°</div><div class="wx">${label}</div></div>`;
+        }).join("");
       } catch (e) {
         err.hidden = false;
         err.textContent = e.message || "Couldn’t load weather.";
         setText("moodLine", "Ben is feeling confused.");
-        setText("moodDetail", "");
         document.getElementById("emoji").textContent = "😵";
       }
     }
